@@ -16,5 +16,7 @@ with open('#file_name', 'rb') as book:
 
         content = next_page.extractText()
 
-        audio_reader.say(content)
+        audio_reader.save_to_file(content, "#your_file_name.mp3")
         audio_reader.runAndWait()
+
+    
