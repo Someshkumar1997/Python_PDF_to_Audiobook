@@ -6,6 +6,8 @@ import PyPDF2
 
 with open('#file_name', 'rb') as book:
 
+    full_text = ""
+
     reader = PyPDF2.PdfFileReader(book)
 
     audio_reader = pyttsx3.init()
@@ -15,8 +17,9 @@ with open('#file_name', 'rb') as book:
         next_page = reader.getPage(page)
 
         content = next_page.extractText()
+        full_text += content
 
-        audio_reader.save_to_file(content, "#your_file_name.mp3")
-        audio_reader.runAndWait()
+    audio_reader.save_to_file(full_text, "#your_file_name.mp3")
+    audio_reader.runAndWait()
 
     
